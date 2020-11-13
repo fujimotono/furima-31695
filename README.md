@@ -2,14 +2,15 @@
 
 ## users テーブル
 
-| Column          | Type    | Options   |
-| ----------      | ------  | --------- |
-| nickname        | string  | NOT NILL |
-| email           | string  | NOT NILL |
-| password        | string  | NOT NILL |
-| name full-width | string  | NOT NILL |
-| kana full-width | string  | NOT NILL |
-| birthday        | integer | NOT NILL |
+| Column             | Type    | Options    |
+| ------------------ | ------  | ---------- |
+| nickname           | string  | null false |
+| email              | string  | null false |
+| password           | string  | null false |
+| encrypted_password | string  | null false |
+| name full-width    | string  | null false |
+| kana full-width    | string  | null false |
+| birthday           | integer | null false |
 
 ### Association
 
@@ -19,14 +20,14 @@
 
 ## items テーブル
 
-| Column       | Type       | Options  |
-| ------------ | ---------- | -------- |
-| product name | string     | NOT NILL |
-| category     | text       | NOT NILL |
-| price        | integer    | NOT NILL |
-| seller       | text       | NOT NILL |
-| image        | ActiveStorageで実装    |
-| user_id      | references |          |
+| Column       | Type       | Options    |
+| ------------ | ---------- | --------   |
+| name         | string     | null false |
+| category     | text       | null false |
+| price        | integer    | null false |
+| seller       | text       | null false |
+| image        | ActiveStorageで実装      |
+| user         | references |            |
 
 ### Association
 
@@ -37,29 +38,28 @@
 
 | Column                 | Type       | Options  |
 | ---------------------- | ---------- | -------- |
-| buy-item-info          | text       | NOT NILL |
-| item-payment           | integer    | NOT NILL |
-| credit-card-form       | text       | NOT NILL |
-| shipping-address-form  | text       | NOT NILL |
-| user_id                | references |          |
-| items_id               | references |          |
+| user                   | references |          |
+| items                  | references |          |
 
 ### Association
 
   belongs_to :user
-  has_one :item
-  belongs_to :address
+  belong_to :item
+  has_one :address
 
 ## addressテーブル
 
-| Column                    | Type          | Options  |
-| ------------------------- | ------------- | -------- |
-| item-shipping-fee-status  | text          | NOT NILL |
-| item-prefecture           | text          | NOT NILL |
-| item-scheduled-delivery   | text          | NOT NILL |
-| user                      | references    |          |
-| item                      | references    |          |
-| order                     | references    |          |
+| Column                    | Type          | Options    |
+| ------------------------- | ------------- | ---------- |
+| item-shipping-fee-status  | text          | null false |
+| item-prefecture           | text          | null false |
+| postal-code               | integer       | null false |
+| prefecture                | string        | null false |
+| city                      | string        | null false |
+| addresses                 | integer       | null false |
+| building-number           | integer       | null false |
+| phone-number              | integer       | null false |
+| order                     | references    |            |
 
 ### Association
 
