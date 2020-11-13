@@ -1,24 +1,65 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column          | Type    | Options   |
+| ----------      | ------  | --------- |
+| nickname        | string  | NOT NILL |
+| email           | string  | NOT NILL |
+| password        | string  | NOT NILL |
+| name full-width | string  | NOT NILL |
+| kana full-width | string  | NOT NILL |
+| birthday        | integer | NOT NILL |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :orders
 
-* Configuration
 
-* Database creation
+## items テーブル
 
-* Database initialization
+| Column       | Type       | Options  |
+| ------------ | ---------- | -------- |
+| product name | string     | NOT NILL |
+| category     | text       | NOT NILL |
+| price        | integer    | NOT NILL |
+| seller       | text       | NOT NILL |
+| image        | ActiveStorageで実装    |
+| user_id      | references |          |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_one :order
 
-* Deployment instructions
+## ordersテーブル
 
-* ...
+| Column                 | Type       | Options  |
+| ---------------------- | ---------- | -------- |
+| buy-item-info          | text       | NOT NILL |
+| item-payment           | integer    | NOT NILL |
+| credit-card-form       | text       | NOT NILL |
+| shipping-address-form  | text       | NOT NILL |
+| user_id                | references |          |
+| items_id               | references |          |
+
+### Association
+
+  belongs_to :user
+  has_one :item
+  belongs_to :address
+
+## addressテーブル
+
+| Column                    | Type          | Options  |
+| ------------------------- | ------------- | -------- |
+| item-shipping-fee-status  | text          | NOT NILL |
+| item-prefecture           | text          | NOT NILL |
+| item-scheduled-delivery   | text          | NOT NILL |
+| user                      | references    |          |
+| prototype                 | references    |          |
+
+### Association
+
+  belongs_to :order
