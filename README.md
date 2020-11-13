@@ -58,7 +58,8 @@
 | item-prefecture           | text          | NOT NILL |
 | item-scheduled-delivery   | text          | NOT NILL |
 | user                      | references    |          |
-| prototype                 | references    |          |
+| item                      | references    |          |
+| order                     | references    |          |
 
 ### Association
 
