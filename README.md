@@ -7,12 +7,12 @@
 | nickname           | string  | null false |
 | email              | string  | null false |
 | encrypted_password | string  | null false |
-| name full_width    | string  | null false |
-| last-name          | string  | null false |
-| first-name         | string  | null false |
-| kana full_width    | string  | null false |
-| last-name          | string  | null false |
-| first-name         | string  | null false |
+| name_full_width    | string  | null false |
+| last_name          | string  | null false |
+| first_name         | string  | null false |
+| kana_full_width    | string  | null false |
+| last_name          | string  | null false |
+| first_name         | string  | null false |
 | birthday           | date    | null false |
 
 ### Association
@@ -29,10 +29,10 @@
 | price                | integer    | null false                     |
 | category_id          | integer    | null false                     |
 | seller_id            | integer    | null false                     |
-| product-condition_id | integer    | null false                     |
-| shipping-charges_id  | integer    | null false                     |
-| shipping-area_id     | integer    | null false                     |
-| days-to-ship_id      | integer    | null false                     |
+| product_condition_id | integer    | null false                     |
+| shipping_charges_id  | integer    | null false                     |
+| shipping_area_id     | integer    | null false                     |
+| days_to_ship_id      | integer    | null false                     |
 | user                 | references | null: false, foreign_key: true |
 
 ### Association
@@ -57,13 +57,12 @@
 
 | Column                    | Type          | Options                        |
 | ------------------------- | ------------- | ------------------------------ |
-| postal-code_id            | integer       | null false                     |
+| postal_code_id            | string        | null false                     |
 | prefecture_id             | integer       | null false                     |
 | city                      | string        | null false                     |
-| addresses                 | integer       | null false                     |
+| addresses                 | string        | null false                     |
 | building                  | string        |                                |
-| phone-number              | string        | null false                     |
-| item                      | references    | null: false, foreign_key: true |
+| phone_number              | string        | null false                     |
 | order                     | references    | null: false, foreign_key: true |
 
 ### Association
