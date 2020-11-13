@@ -7,8 +7,12 @@
 | nickname           | string  | null false |
 | email              | string  | null false |
 | encrypted_password | string  | null false |
-| name full-width    | string  | null false |
-| kana full-width    | string  | null false |
+| name full_width    | string  | null false |
+| last-name          | string  | null false |
+| first-name         | string  | null false |
+| kana full_width    | string  | null false |
+| last-name          | string  | null false |
+| first-name         | string  | null false |
 | birthday           | date    | null false |
 
 ### Association
@@ -19,18 +23,17 @@
 
 ## items テーブル
 
-| Column            | Type       | Options    |
-| ----------------- | ---------- | --------   |
-| name              | string     | null false |
-| category          | text       | null false |
-| price             | integer    | null false |
-| seller            | text       | null false |
-| product-condition | text       | null false |
-| shipping-charges  | text       | null false |
-| shipping-area     | text       | null false |
-| days-to-ship      | test       | null false |
-| image        | ActiveStorageで実装           |
-| user         | references |                 |
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| name                 | string     | null false                     |
+| price                | integer    | null false                     |
+| category_id          | integer    | null false                     |
+| seller_id            | integer    | null false                     |
+| product-condition_id | integer    | null false                     |
+| shipping-charges_id  | integer    | null false                     |
+| shipping-area_id     | integer    | null false                     |
+| days-to-ship_id      | integer    | null false                     |
+| user                 | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -39,10 +42,10 @@
 
 ## ordersテーブル
 
-| Column                 | Type       | Options  |
-| ---------------------- | ---------- | -------- |
-| user                   | references |          |
-| items                  | references |          |
+| Column                 | Type       | Options                       |
+| ---------------------- | ---------- | ----------------------------- |
+| user                   | references | null: false, foreign_key: true|
+| item                   | references | null: false, foreign_key: true|
 
 ### Association
 
@@ -52,15 +55,16 @@
 
 ## addressテーブル
 
-| Column                    | Type          | Options    |
-| ------------------------- | ------------- | ---------- |
-| postal-code               | string        | null false |
-| prefecture                | string        | null false |
-| city                      | string        | null false |
-| addresses                 | integer       | null false |
-| building-number           | integer       |            |
-| phone-number              | string        | null false |
-| order                     | references    |            |
+| Column                    | Type          | Options                        |
+| ------------------------- | ------------- | ------------------------------ |
+| postal-code_id            | integer       | null false                     |
+| prefecture_id             | integer       | null false                     |
+| city                      | string        | null false                     |
+| addresses                 | integer       | null false                     |
+| building                  | string        |                                |
+| phone-number              | string        | null false                     |
+| item                      | references    | null: false, foreign_key: true |
+| order                     | references    | null: false, foreign_key: true |
 
 ### Association
 
