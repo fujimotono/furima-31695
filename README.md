@@ -6,11 +6,10 @@
 | ------------------ | ------  | ---------- |
 | nickname           | string  | null false |
 | email              | string  | null false |
-| password           | string  | null false |
 | encrypted_password | string  | null false |
 | name full-width    | string  | null false |
 | kana full-width    | string  | null false |
-| birthday           | integer | null false |
+| birthday           | date    | null false |
 
 ### Association
 
@@ -20,14 +19,18 @@
 
 ## items テーブル
 
-| Column       | Type       | Options    |
-| ------------ | ---------- | --------   |
-| name         | string     | null false |
-| category     | text       | null false |
-| price        | integer    | null false |
-| seller       | text       | null false |
-| image        | ActiveStorageで実装      |
-| user         | references |            |
+| Column            | Type       | Options    |
+| ----------------- | ---------- | --------   |
+| name              | string     | null false |
+| category          | text       | null false |
+| price             | integer    | null false |
+| seller            | text       | null false |
+| product-condition | text       | null false |
+| shipping-charges  | text       | null false |
+| shipping-area     | text       | null false |
+| days-to-ship      | test       | null false |
+| image        | ActiveStorageで実装           |
+| user         | references |                 |
 
 ### Association
 
@@ -44,21 +47,19 @@
 ### Association
 
   belongs_to :user
-  belong_to :item
+  belongs_to :item
   has_one :address
 
 ## addressテーブル
 
 | Column                    | Type          | Options    |
 | ------------------------- | ------------- | ---------- |
-| item-shipping-fee-status  | text          | null false |
-| item-prefecture           | text          | null false |
-| postal-code               | integer       | null false |
+| postal-code               | string        | null false |
 | prefecture                | string        | null false |
 | city                      | string        | null false |
 | addresses                 | integer       | null false |
-| building-number           | integer       | null false |
-| phone-number              | integer       | null false |
+| building-number           | integer       |            |
+| phone-number              | string        | null false |
 | order                     | references    |            |
 
 ### Association
