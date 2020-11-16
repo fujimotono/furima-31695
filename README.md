@@ -9,8 +9,8 @@
 | encrypted_password | string  | null false |
 | last_name          | string  | null false |
 | first_name         | string  | null false |
-| last_name-kana     | string  | null false |
-| first_name-kana    | string  | null false |
+| last_name_kana     | string  | null false |
+| first_name_kana    | string  | null false |
 | birthday           | date    | null false |
 
 ### Association
@@ -30,7 +30,7 @@
 | shipping_charge_id   | integer    | null false                     |
 | shipping_area_id     | integer    | null false                     |
 | days_to_ship_id      | integer    | null false                     |
-| item-explain-box     | text       | null false                     |
+| item_explain_box     | text       | null false                     |
 | user                 | references | null: false, foreign_key: true |
 
 ### Association
@@ -49,7 +49,7 @@
 
   belongs_to :user
   belongs_to :item
-  has_one :address
+  has_one :addresses
 
 ## addressテーブル
 
