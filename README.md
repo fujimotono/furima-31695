@@ -56,6 +56,7 @@
 | Column                    | Type          | Options                        |
 | ------------------------- | ------------- | ------------------------------ |
 | postal_code_id            | string        | null false                     |
+| shipping_area_id          | integer       | null false                     |
 | city                      | string        | null false                     |
 | addresses                 | string        | null false                     |
 | building                  | string        |                                |
