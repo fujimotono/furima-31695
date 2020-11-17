@@ -89,6 +89,18 @@ RSpec.describe User, type: :model do
          another_user.valid?
          expect(another_user.errors.full_messages).to include("Email has already been taken")
        end
+
+       it "ユーザー本名は、全角（漢字・ひらがな・カタカナ）での入力が必須でないと登録できないこと" do
+        @user.last_name = /\A[ぁ-んァ-ン一-龥]+\z/
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name is invalid")
+       end
+
+       it "ユーザー本名のフリガナは、全角（カタカナ）での入力が必須でないと登録できないこと" do
+        @user.last_name_kana = /\A[ァ-ヶー－]+\z/
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name kana is invalid")
+       end
       end
     end
   end
