@@ -19,7 +19,7 @@ class Item < ApplicationRecord
   end
 
   with_options presence: true, format: { with: /\A[0-9]+\z/ } do
-    validates :price, presence: true
+    validates :price
   end
   validates_inclusion_of :price, in: 300..9_999_999
   
