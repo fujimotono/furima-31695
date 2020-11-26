@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_charge
   belongs_to_active_hash :shipping_area
   belongs_to_active_hash :days_to_ship
+  has_one :order
   
   with_options presence: true do
   validates :category
