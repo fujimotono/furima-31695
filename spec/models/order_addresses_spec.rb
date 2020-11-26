@@ -20,8 +20,8 @@ RSpec.describe OrderAddress, type: :model do
     end
 
     context '商品購入ができない時' do
-      it 'postal_code_idが空だと保存できないこと' do
-        @order_address.postal_code_id = nil
+      it 'postal_codeが空だと保存できないこと' do
+        @order_address.postal_code = nil
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Postal code can't be blank")
       end
@@ -45,8 +45,8 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Phone number can't be blank")
       end
-      it 'postal_code_idにはハイフンがないと保存できないこと' do
-        @order_address.postal_code_id = '-'
+      it 'postal_codeにはハイフンがないと保存できないこと' do
+        @order_address.postal_code = '-'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
       end

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :order_address do
-    postal_code_id        {'123-4567'}
+    postal_code        {'123-4567'}
     shipping_area_id      {2}
     city                  {'東京都'}
     addresses             {'渋谷1ー1ー1'}
