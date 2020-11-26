@@ -14,7 +14,6 @@ class OrderAddress
 
   def save
     # 各テーブルにデータを保存する処理を書く
-    Order.create(user_id: user_id, item_id: item_id)
     order = Order.create(user_id: user_id, item_id: item_id)
     Address.create(postal_code_id: postal_code_id, shipping_area_id: shipping_area_id, city: city, addresses: addresses, building: building, phone_number: phone_number, order_id: order.id)
   end
