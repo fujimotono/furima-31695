@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
     const profit = document.getElementById('profit');
    
     // 計算する　⑦⑧
-    const Tax = Math.floor(price * 0.1)
+    const Tax = Math.floor(price * 0.1);
     const addProfit = Math.floor(price - Tax);
 
     // 貼り付ける　⑨⑩
